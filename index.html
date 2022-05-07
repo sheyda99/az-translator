@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - Translator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div id="main" class="card">
+                    <div class="card-content">
+                        <span class="card-title">API - Translator</span>
+                        <div class="row">
+                            <form id="translate-form">
+                                <div class="input-field col s12">
+                                    <textarea name="word" id="word" class="materialize-textarea">Salam</textarea>
+                                    <label for="task">Tərcümə olunacaq mətn:</label>
+                                </div>
+
+                                <div class="input-field col s7">
+                                    <select id="language">
+                                        <option value="en">İngilis dili</option>
+                                        <option value="de">Alman dili</option>
+                                        <option value="es">İspan dili</option>
+                                    </select>
+                                </div>
+
+                                <input type="submit" value="Tərcümə et" class="btn col s7">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <img src="images/en.png" id="outputImage" height="50px" width="50px" alt="" style="margin: 10px 10px -15px;">
+                        <span class="card-title" id="outputLanguage">İngilis dili</span>
+                    </div>
+                    <div class="card-content">
+                        <h5>Tərcümə: <a onclick="copyText()" class="waves-effect waves-light btn" style="float: right;"><i class="material-icons">content_copy</i></a></h5>
+                        <span id="outputWord" style="color: red; font-size: 20px;">Hello</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+
+        function copyText() {
+            navigator.clipboard.writeText(document.getElementById("outputWord").textContent);
+        }
+    </script>
+    <script src="js/ui.js"></script>
+    <script src="js/translate.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
