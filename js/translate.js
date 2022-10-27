@@ -7,7 +7,7 @@ function Translate(word, language) {
 }
 
 Translate.prototype.translateWord = function(callback) {
-    const endpoint = `https://nlp-translation.p.rapidapi.com/v1/translate?text=${this.word}&to=${this.language}&from=en`;
+    const endpoint = `https://nlp-translation.p.rapidapi.com/v1/translate?text=${this.word}&to=${this.language}&from=az`;
     const data = null;
 
     this.xhr.open("GET", endpoint);
